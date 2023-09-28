@@ -20,11 +20,12 @@ public class TecnicoDTO implements Serializable {
 	protected String senha;
 	protected Set<Integer> perfis = new HashSet<>();
 	
-	@JsonFormat(pattern = "dd/mm/yyyy")
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	protected LocalDate dataCriacao = LocalDate.now();
 
 	public TecnicoDTO() {
 		super();
+		addPerfil(Perfil.CLIENTE);
 	}
 
 	public TecnicoDTO(Tecnico obj) {
