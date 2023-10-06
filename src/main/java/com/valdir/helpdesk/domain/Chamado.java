@@ -23,10 +23,11 @@ public class Chamado implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	
-	@JsonFormat(pattern = "dd/mm/yyyy")
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataAbertura = LocalDate.now();
+	@JsonFormat(pattern = "dd/MM/yyyy")
 	private LocalDate dataFechamento;
-	private Prioridade prioeidade;
+	private Prioridade prioridade;
 	private Status status;
 	private String titulo; 
 	private String observacoes;
@@ -38,14 +39,15 @@ public class Chamado implements Serializable {
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
+	
 	public Chamado() {
 		super();
 	}
-	public Chamado(Integer id, Prioridade prioeidade, Status status, String titulo, String observacoes, Tecnico tecnico,
+	public Chamado(Integer id, Prioridade prioridade, Status status, String titulo, String observacoes, Tecnico tecnico,
 			Cliente cliente) {
 		super();
 		this.id = id;
-		this.prioeidade = prioeidade;
+		this.prioridade = prioridade;
 		this.status = status;
 		this.titulo = titulo;
 		this.observacoes = observacoes;
@@ -70,11 +72,11 @@ public class Chamado implements Serializable {
 	public void setDataFechamento(LocalDate dataFechamento) {
 		this.dataFechamento = dataFechamento;
 	}
-	public Prioridade getPrioeidade() {
-		return prioeidade;
+	public Prioridade getPrioridade() {
+		return prioridade;
 	}
-	public void setPrioeidade(Prioridade prioeidade) {
-		this.prioeidade = prioeidade;
+	public void setPrioridade(Prioridade prioridade) {
+		this.prioridade = prioridade;
 	}
 	public Status getStatus() {
 		return status;
